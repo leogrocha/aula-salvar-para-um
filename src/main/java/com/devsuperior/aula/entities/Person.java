@@ -1,5 +1,6 @@
 package com.devsuperior.aula.entities;
 
+import com.devsuperior.aula.dto.PersonDTO;
 import com.devsuperior.aula.dto.PersonDepartamentDTO;
 import jakarta.persistence.*;
 
@@ -34,6 +35,14 @@ public class Person {
         person.setName(personDepartamentDTO.getName());
         person.setSalary(personDepartamentDTO.getSalary());
         person.setDepartment(new Department(personDepartamentDTO.getDepartament()));
+        return person;
+    }
+
+    public Person fromEntityParaUm(PersonDTO personDTO) {
+        Person person = new Person();
+        person.setId(personDTO.getId());
+        person.setName(personDTO.getName());
+        person.setSalary(personDTO.getSalary());
         return person;
     }
 
