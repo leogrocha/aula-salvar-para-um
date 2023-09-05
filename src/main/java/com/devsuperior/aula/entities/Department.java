@@ -1,5 +1,6 @@
 package com.devsuperior.aula.entities;
 
+import com.devsuperior.aula.dto.DepartamentDTO;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -18,6 +19,11 @@ public class Department {
     private List<Person> people = new ArrayList<>();
 
     public Department() {
+    }
+
+    public Department(DepartamentDTO departamentDTO) {
+        id = departamentDTO.getId();
+        name = departamentDTO.getName();
     }
 
     public Department(Long id, String name) {

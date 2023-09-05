@@ -1,5 +1,6 @@
 package com.devsuperior.aula.entities;
 
+import com.devsuperior.aula.dto.PersonDepartamentDTO;
 import jakarta.persistence.*;
 
 @Entity
@@ -25,6 +26,17 @@ public class Person {
         this.salary = salary;
         this.department = department;
     }
+
+
+    public Person fromEntity(PersonDepartamentDTO personDepartamentDTO) {
+        Person person = new Person();
+        person.setId(personDepartamentDTO.getId());
+        person.setName(personDepartamentDTO.getName());
+        person.setSalary(personDepartamentDTO.getSalary());
+        person.setDepartment(new Department(personDepartamentDTO.getDepartament()));
+        return person;
+    }
+
 
     public Long getId() {
         return id;
